@@ -1,5 +1,10 @@
-alert("Hello World!");
+const defaultResult = 0;
+let currentResult = defaultResult;
 
-let currentResult = 10;
+function add() {
+    //currentResult = currentResult + parseInt(userInput.value); If I need decimals
+    currentResult = currentResult + +userInput.value;
+    outputResult(currentResult, '');
+}
 
-outputResult(currentResult, '');
+addBtn.addEventListener('click', add)
