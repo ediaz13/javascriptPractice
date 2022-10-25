@@ -2,7 +2,7 @@ const defaultResult = 0;
 let currentResult = defaultResult;
 let logEntries = [];
 
-function getUserNUmberInput() {
+function getUserNumberInput() {
     return parseInt(userInput.value);
 }
 
@@ -12,30 +12,36 @@ function createWriteLog(operator, resultBefore, calcNumber) {
 }
 
 function add() {
-    const enteredNumber = getUserNUmberInput();
+    const enteredNumber = getUserNumberInput();
     const initialResult = currentResult;
     currentResult = currentResult + enteredNumber;
     createWriteLog('+', initialResult, enteredNumber);
-    logEntries.push(enteredNumber);
+    const logEntry = {
+        operation: 'ADD',
+        prevResult: initialResult,
+        number: enteredNumber,
+        result: currentResult 
+    };
+    logEntries.push(logEntry);
     console.log(logEntries);
 }
 
 function subtract() {
-    const enteredNumber = getUserNUmberInput();
+    const enteredNumber = getUserNumberInput();
     const initialResult = currentResult;
     currentResult = currentResult - enteredNumber;
     createWriteLog('-', initialResult, enteredNumber);
 }
 
 function multiply() {
-    const enteredNumber = getUserNUmberInput();
+    const enteredNumber = getUserNumberInput();
     const initialResult = currentResult;
     currentResult = currentResult * enteredNumber;
     createWriteLog('*', initialResult, enteredNumber);
 }
 
 function divide() {
-    const enteredNumber = getUserNUmberInput();
+    const enteredNumber = getUserNumberInput();
     const initialResult = currentResult;
     currentResult = currentResult / enteredNumber;
     createWriteLog('/', initialResult, enteredNumber);
