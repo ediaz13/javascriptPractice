@@ -26,7 +26,7 @@ function endRound() {
 }
 
 function attackHandler(mode) {
-    let maxDammage;
+    let maxDamage;
     if (mode ==='ATTACK') {
         maxDamage = ATTACK_VALUE;
     } else is (mode === 'STRONG_ATTACK') {
