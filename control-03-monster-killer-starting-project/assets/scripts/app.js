@@ -34,11 +34,24 @@ function endRound() {
     }    
 }
 
+function attackMonster(mode) {
+    let maxDamage;
+    if (mode === 'ATTACK') {
+      maxDamage = ATTACK_VALUE;
+    } else if (mode === 'STRONG_ATTACK') {
+      maxDamage = STRONG_ATTACK_VALUE;
+    }
+    const damage = dealMonsterDamage(maxDamage);
+    currentMonsterHealth -= damage;
+    endRound();
+  }
+  
+
 function attackHandler(mode) {
     let maxDamage;
     if (mode ==='ATTACK') {
         maxDamage = ATTACK_VALUE;
-    } else is (mode === 'STRONG_ATTACK') {
+    } else if (mode === 'STRONG_ATTACK') {
         maxDamage = STRONG_ATTACK_VALUE;
     }
 
