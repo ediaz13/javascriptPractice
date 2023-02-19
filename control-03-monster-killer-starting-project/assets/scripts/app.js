@@ -1,4 +1,5 @@
 const ATTACK_VALUE = 10;
+const STRONG_ATTACK_VALUE = 17;
 const MONSTER_ATTTACK_VALUE =14;
 
 let chosenMaxLife = 100;
@@ -7,9 +8,16 @@ let currentPlayerHealth = chosenMaxLife;
 
 adjustHealthBars(chosenMaxLife); 
 
-function attackHandler() {
-    const monsterDamage = dealMonsterDamage(ATTACK_VALUE);
-    currentMonsterHealth -= monsterDamage;
+function attackHandler(mode) {
+    let maxDammage;
+    if (mode ==='ATTACK') {
+        maxDamage = ATTACK_VALUE;
+    } else is (mode === 'STRONG_ATTACK') {
+        maxDamage = STRONG_ATTACK_VALUE;
+    }
+
+    const damage = dealMonsterDamage(maxDammage);
+    currentMonsterHealth -= damage;
     const playerDamage = dealPlayerDamage(MONSTER_ATTTACK_VALUE);
     currentPlayerHealth -= playerDamage;
 
@@ -22,4 +30,13 @@ function attackHandler() {
     }
 }
 
+function attackHandler() {
+    attackMonster('ATTACK');
+}
+
+function strongAttackHandler() {
+    attackMonster('STRONG_ATTACK');
+}
+
 attackBtn.addEventListener('click', attackHandler);
+strongAttackBtn.addEventListener('click');
