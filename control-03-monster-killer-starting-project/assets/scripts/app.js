@@ -3,8 +3,14 @@ const STRONG_ATTACK_VALUE = 17;
 const MONSTER_ATTTACK_VALUE =14;
 const HEAL_VALUE =20;
 
+const eneredValue = prompt('Maximun life for you and the moster.', '100');
 
-let chosenMaxLife = 100;
+let chosenMaxLife = parent(eneredValue);
+
+if (isNaN(chosenMaxLife) || chosenMaxLife <= 0) {
+    alert('You choose like shit!');
+    chosenMaxLife = 100;
+}
 let currentMonsterHealth = chosenMaxLife;
 let currentPlayerHealth = chosenMaxLife;
 let hasBonusLife = true;
