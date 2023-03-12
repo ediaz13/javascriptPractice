@@ -18,4 +18,12 @@ button.addEventListener('click', () => {
 
   // section.classList.toggle('visible');
   section.classList.toggle('invisible');
+
+  const list = document.querySelector('ul');
+  const newLi = document.createElement('li');
+  newLi.textContent = 'Learn JavaScript';
+  list.appendChild(newLi);
+  const newLi_1 = document.createElement('li');
+  newLi_1.textContent = 'Master JavaScript';
+  list.appendChild(newLi_1);
 });
