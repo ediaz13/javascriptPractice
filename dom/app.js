@@ -26,4 +26,19 @@ button.addEventListener('click', () => {
   const newLi_1 = document.createElement('li');
   newLi_1.textContent = 'Master JavaScript';
   list.appendChild(newLi_1);
+
+  //166. Live Node Lists vs Static Node Lists
+  /*
+  Live Node
+  const list = document.getElementsByTagName('ul');
+
+  Static Node
+  const list = document.querySelector('ul');
+
+   */
+  //167. Removing Elements
+  /*const list = document.querySelector('ul');
+  list.parentElement.removeChild(list);
+  list.remove();
+  */
 });
