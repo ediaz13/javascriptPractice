@@ -44,7 +44,7 @@ const addMovieHandler = () => {
     +ratingValue < 1 ||
     +ratingValue > 5
   ) {
-    alert('Please enter valid values (rating between 1 and 5).');
+    alert('Please enter valid values (Rating between 1 and 5).');
     return;
   }
 
