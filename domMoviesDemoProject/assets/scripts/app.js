@@ -45,6 +45,12 @@ const deleteMovieHandler = movieId => {
   deleteMovieModal.classList.add('visible');
   toggleBackdrop();
   // deleteMovie(movieId);
+const cancelDeletionButton = deleteMovieHandler.querySelector('.btn--passive');
+const confirmDeletionButton = deleteMovieHandler.querySelector('.btn--danger');
+
+cancelDeletionButton.addEventListener('click', closeMovieDeletionModal);
+confirmDeletionButton.addEventListener('click', deleteMovie.bind(null, movieId));
+
 };
 
 const renderNewMovieElement = (id, title, imageUrl, rating) => {
