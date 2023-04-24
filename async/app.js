@@ -25,11 +25,14 @@ const setTimer = (duration) => {
   return promise;
 };
 
-function trackUserHandler() {
-  let positionData;
+async function trackUserHandler() {
+  //let positionData;
 
-  getPosition()
-    .then((posData) => {
+  const posData = await getPosition();
+  const timerData = await setTimer(2000);
+  console.log(data, positionData);
+  
+  /*.then((posData) => {
       positionData = posData;
       return setTimer(2000);
     })
@@ -44,6 +47,7 @@ function trackUserHandler() {
     console.log('Timer done!');
   });
   console.log('Getting position...');
+  */
 }
 
 button.addEventListener('click', trackUserHandler);
