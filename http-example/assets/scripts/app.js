@@ -5,7 +5,7 @@ const fetchButton = document.querySelector('#available-posts button');
 const postList = document.querySelector('ul');
 
 function sendHttpRequest(method, url, data) {
-  const promise = new Promise((resolve, reject) => {
+  /* const promise = new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
     xhr.open(method, url);
 
@@ -25,16 +25,22 @@ function sendHttpRequest(method, url, data) {
     };
 
     xhr.send(JSON.stringify(data));
-  });
+    
+}); 
 
-  return promise;
+    return promise;
+  */
+
+    return fetch(url).then(response => {
+        return response.json(); 
+    });
 }
 
 async function fetchPosts() {
-    try {
+    //try {
         const responseData = await sendHttpRequest(
           "GET",
-          "https://jsonplaceholder.typicode.com/pos"
+          "https://jsonplaceholder.typicode.com/posts"
         );
       
         const listOfPosts = responseData;
@@ -46,9 +52,9 @@ async function fetchPosts() {
           listElement.append(postEl);
         }
         
-    } catch (error) {
+    /*} catch (error) {
         alert(error.message);     
-    }
+    }*/
 }
 
 
