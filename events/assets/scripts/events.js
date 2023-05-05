@@ -1,7 +1,7 @@
 const button = document.querySelector('button');
 
-const buttonClickHandler = () => {
-    alert('Button was clicked!');
+const buttonClickHandler = event => {
+    console.log(event);
 }
 
 const anotherButtonClickHandler = () => {
