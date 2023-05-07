@@ -23,3 +23,7 @@ setTimeout(() => {
 buttons.forEach(btn => {
     btn.addEventListener('mouseenter', buttonClickHandler);
 });
+
+window.addEventListener('scroll', event => {
+    console.log(event);
+});
