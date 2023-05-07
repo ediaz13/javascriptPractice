@@ -2,7 +2,7 @@
 const buttons = document.querySelectorAll('button');
 
 const buttonClickHandler = event => {
-    event.target.disabled = true;
+    //event.target.disabled = true;
     console.log(event);
 }
 
