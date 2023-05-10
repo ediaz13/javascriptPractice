@@ -45,6 +45,7 @@ div.addEventListener('click', event => {
 })
 
 button.addEventListener('click', event => {
+    event.stopPropagation();
     console.log('CLECKED BUTTON');
     console.log(event);
 });
