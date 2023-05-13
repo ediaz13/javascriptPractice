@@ -54,6 +54,7 @@ const listItems = document.querySelectorAll('li');
 const list = document.querySelector('ul');
 
 /*
+315. Triggering DOM Elements Programmatically
 listItems.forEach( listItem => {
     listItem.addEventListener('click', event => {
         event.target.classList.toggle('highlight');
