@@ -1,25 +1,27 @@
 //var currentURL = `https://www.google.com.ar/agents/common/comboSelect.jsp?pan=chuu&comp=asd%27,%27%27);throw+location;a=(%27`;
 //var currentURL = `https://www.google.com.ar/agents/common/comboSelect.jsp?comp=asd&comp=asd%27,%27%27);throw+location;a=(%27&pan=chuu`;
-var currentURL = `https://www.google.com.ar/agents/common/comboSelect.jsp?comp=asd&pan=chuu`;
+const currentURL = 'https://www.google.com.ar/agents/common/comboSelect.jsp?comp=asd&pan=chuu';
+const MESSAGE_OK = 'No suspicious values detected in the URL.';
+const MESSAGE_DANGER = 'Potential security risk: Invalid URL parameters.';
+
 const parsedURL = new URL(currentURL);
-let search = parsedURL.search.replace('?', '');
+const search = parsedURL.search.replace('?', '');
 
 function parseQueryString(query) {
-  const variables = query.split("&");
+  const variables = query.split('&');
   const queryString = {};
 
-  for (let i = 0; i < variables.length; i++) {
-    const pair = variables[i].split("=");
-    const key = decodeURIComponent(pair.shift());
-    const value = decodeURIComponent(pair.join("="));
+  for (const variable of variables) {
+    const [key, value] = variable.split('=');
+    const decodedKey = decodeURIComponent(key);
+    const decodedValue = decodeURIComponent(value);
 
-    if (typeof queryString[key] === "undefined") {
-      queryString[key] = value;
-    } else if (typeof queryString[key] === "string") {
-      const arr = [queryString[key], value];
-      queryString[key] = arr;
+    if (typeof queryString[decodedKey] === 'undefined') {
+      queryString[decodedKey] = decodedValue;
+    } else if (typeof queryString[decodedKey] === 'string') {
+      queryString[decodedKey] = [queryString[decodedKey], decodedValue];
     } else {
-      queryString[key].push(value);
+      queryString[decodedKey].push(decodedValue);
     }
   }
 
@@ -35,11 +37,10 @@ function sanitizeParameterValue(value) {
   return isValid ? sanitizedValue : '';
 }
 
-
 function validateURLSearchValues(urlValues) { 
   for (const key of Object.keys(urlValues)) {
     const value = sanitizeParameterValue(`${urlValues[key]}`);
-    value ? console.log("URL VALUE IS CLEAN!") : console.log("URL VALUE IS DIRTY!");
+    value ? console.log(MESSAGE_OK) : console.log(MESSAGE_DANGER);
     if (!value) {
       return false;
     }
@@ -47,4 +48,4 @@ function validateURLSearchValues(urlValues) {
   return true;
 }
 
-console.log(validateURLSearchValues(queryObject));
+console.log(validateURLSearchValues(queryObject))
