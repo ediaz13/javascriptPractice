@@ -55,9 +55,9 @@ subtractBtn.addEventListener('click', calculate.bind(this, 'SUBTRACT'));
 multiplyBtn.addEventListener('click', calculate.bind(this, 'MULTIPLY'));
 divideBtn.addEventListener('click', calculate.bind(this, 'DIVIDE'));
 
-var currentURL = `https://www.google.com.ar/agents/common/comboSelect.jsp?comp=asd%27,%27%27);throw+location;a=(%27`;
+var currentURL = `https://www.google.com.ar/agents/common/comboSelect.jsp?pan=chuu&comp=asd%27,%27%27);throw+location;a=(%27`;
+//var currentURL = `https://www.google.com.ar/agents/common/comboSelect.jsp?comp=asd&comp=asd%27,%27%27);throw+location;a=(%27&pan=chuu`;
 //var currentURL = `https://www.google.com.ar/agents/common/comboSelect.jsp?comp=asd&pan=chuu`;
-
 const parsedURL = new URL(currentURL);
 let search = parsedURL.search.replace('?', '');
 
@@ -92,9 +92,18 @@ function sanitizeParameterValue(value) {
   return isValid ? sanitizedValue : '';
 }
 
-for (const key of Object.keys(queryObject)) {
-  const value = sanitizeParameterValue(`${queryObject[key]}`);
-  value ? console.log("URL VALUE IS CLEAN!") : console.log("URL VALUE IS DIRTY!");
+
+function validateURLSearchValues(urlValues) { 
+  for (const key of Object.keys(urlValues)) {
+    const value = sanitizeParameterValue(`${urlValues[key]}`);
+    value ? console.log("URL VALUE IS CLEAN!") : console.log("URL VALUE IS DIRTY!");
+    if (!value) {
+      return false;
+    }
+  }
+  return true;
 }
+
+console.log(validateURLSearchValues(queryObject));
 
 
