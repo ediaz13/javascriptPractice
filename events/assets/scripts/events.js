@@ -62,9 +62,10 @@ listItems.forEach( listItem => {
 });
 */
 
-list.addEventListener('click', event => {
+list.addEventListener('click', function(event) {
     //event.target.classList.toggle('highlight');
     event.target.classList.toggle('highlight');
     //form.submit();
     button.click();
+    console.log(this);
 });
