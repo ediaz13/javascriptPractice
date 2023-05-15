@@ -5,9 +5,9 @@ const MESSAGE_OK = 'No suspicious values detected in the URL.';
 const MESSAGE_DANGER = 'Potential security risk: Invalid URL parameters.';
 
 const parsedURL = new URL(currentURL);
-const search = parsedURL.search.replace('?', '');
+const urlSearch = parsedURL.search.replace('?', '');
 
-function parseQueryString(query) {
+function parseUrlSearchValues(query) {
   const variables = query.split('&');
   const queryString = {};
 
@@ -28,7 +28,7 @@ function parseQueryString(query) {
   return queryString;
 }
 
-const queryObject = parseQueryString(search);
+const urlSearchValues = parseUrlSearchValues(urlSearch);
 
 function sanitizeParameterValue(value) {
   const sanitizedValue = value.replace(/['";\(\)]/g, '');
@@ -48,4 +48,4 @@ function validateURLSearchValues(urlValues) {
   return true;
 }
 
-console.log(validateURLSearchValues(queryObject))
+console.log(validateURLSearchValues(urlSearchValues));

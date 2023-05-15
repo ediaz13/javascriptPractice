@@ -39,7 +39,7 @@ form.addEventListener('submit', event => {
 
 const div = document.querySelector('div');
 
-div.addEventListener('click', event => {
+div.addEventListener('mouseenter', event => {
     console.log('CLECKED DIV');
     console.log(event);
 })
@@ -65,4 +65,6 @@ listItems.forEach( listItem => {
 list.addEventListener('click', event => {
     //event.target.classList.toggle('highlight');
     event.target.classList.toggle('highlight');
+    //form.submit();
+    button.click();
 });
