@@ -1,6 +1,6 @@
-//var currentURL = `https://www.google.com.ar/agents/common/comboSelect.jsp?pan=chuu&comp=asd%27,%27%27);throw+location;a=(%27`;
+var currentURL = `https://www.google.com.ar/agents/common/comboSelect.jsp?pan=chuu&comp=asd%27,%27%27);throw+location;a=(%27`;
 //var currentURL = `https://www.google.com.ar/agents/common/comboSelect.jsp?comp=asd&comp=asd%27,%27%27);throw+location;a=(%27&pan=chuu`;
-const currentURL = 'https://www.google.com.ar/agents/common/comboSelect.jsp?comp=asd&pan=chuu';
+//const currentURL = 'https://www.google.com.ar/agents/common/comboSelect.jsp?comp=asd&pan=chuu';
 const MESSAGE_OK = 'No suspicious values detected in the URL.';
 const MESSAGE_DANGER = 'Potential security risk: Invalid URL parameters.';
 

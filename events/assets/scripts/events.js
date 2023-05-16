@@ -69,3 +69,5 @@ list.addEventListener('click', function(event) {
     button.click();
     console.log(this);
 });
+
+//317. Drag & Drop - Theory
