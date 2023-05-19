@@ -147,7 +147,10 @@ class ProjectList {
       );
     }
     console.log(this.projects);
+    this.connectDroppable();
   }
+
+  connectDroppable() {}
 
   setSwitchHandlerFunction(switchHandlerFunction) {
     this.switchHandler = switchHandlerFunction;
