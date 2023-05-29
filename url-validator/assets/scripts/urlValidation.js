@@ -32,7 +32,7 @@ const urlSearchValues = parseUrlSearchValues(urlSearch);
 
 function sanitizeParameterValue(value) {
   const sanitizedValue = value.replace(/['";\(\)]/g, '');
-  const validPattern = /^[a-zA-Z0-9-_]*$/;
+  const validPattern = /^[a-zA-Z0-9-_\s,]*$/;
   const isValid = validPattern.test(sanitizedValue);
   return isValid ? sanitizedValue : '';
 }
