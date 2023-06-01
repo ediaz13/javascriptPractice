@@ -151,15 +151,28 @@ class ProjectList {
   }
 
   connectDroppable() {
-    const list = document.querySelectorAll(`#${type}-projects ul`);
+    const list = document.querySelector(`#${this.type}-projects ul`);
 
     list.addEventListener('dragenter', event => {
-      event.preventDefault();
+      if (event.dataTransfer.types[0] === 'text/plain') {
+        list.parentElement.classList.add('droppable');
+        event.preventDefault();
+      }
+
     });
 
     list.addEventListener('dragover', event => {
-      event.preventDefault();
+      if (event.dataTransfer.types[0] === 'text/plain') {
+        event.preventDefault();
+      }
     });
+
+    list.addEventListener('dragleave', event => {
+      if (event.relatedTarget.closest(`#${this.type}-projects ul`)) {
+        list.parentElement.classList.remove('droppable');
+      }
+    });
+
 
   }
 
