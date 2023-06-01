@@ -1,5 +1,6 @@
-var currentURL = `https://www.google.com.ar/agents/common/comboSelect.jsp?pan=chuu&comp=asd%27,%27%27);throw+location;a=(%27`;
-//var currentURL = `https://www.google.com.ar/agents/common/comboSelect.jsp?comp=asd&comp=asd%27,%27%27);throw+location;a=(%27&pan=chuu`;
+//var currentURL = `https://www.google.com.ar/agents/common/comboSelect.jsp?pan=chuu&comp=asd%27,%27%27);throw+location;a=(%27`;
+
+var currentURL = `http://wasriosegdesa.ar.bsch:9128/agents/common/comboSelect.jsp?comp=cdRamoPyme&param=1|%20| `;
 //const currentURL = 'https://www.google.com.ar/agents/common/comboSelect.jsp?comp=asd&pan=chuu';
 const MESSAGE_OK = 'No suspicious values detected in the URL.';
 const MESSAGE_DANGER = 'Potential security risk: Invalid URL parameters.';
@@ -32,7 +33,7 @@ const urlSearchValues = parseUrlSearchValues(urlSearch);
 
 function sanitizeParameterValue(value) {
   const sanitizedValue = value.replace(/['";\(\)]/g, '');
-  const validPattern = /^[a-zA-Z0-9-_\s,]*$/;
+  const validPattern = /^[a-zA-Z0-9-_\s,|]*$/;
   const isValid = validPattern.test(sanitizedValue);
   return isValid ? sanitizedValue : '';
 }

@@ -150,7 +150,18 @@ class ProjectList {
     this.connectDroppable();
   }
 
-  connectDroppable() {}
+  connectDroppable() {
+    const list = document.querySelectorAll(`#${type}-projects ul`);
+
+    list.addEventListener('dragenter', event => {
+      event.preventDefault();
+    });
+
+    list.addEventListener('dragover', event => {
+      event.preventDefault();
+    });
+
+  }
 
   setSwitchHandlerFunction(switchHandlerFunction) {
     this.switchHandler = switchHandlerFunction;
