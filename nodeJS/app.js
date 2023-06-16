@@ -1,6 +1,9 @@
 const express = require('express');
+const bodyParser = require('express');
 
 const app = express();
+
+app.use(bodyParser.urlencoded({extended: false}));
 
 app.use((req, res, next) => {
     res.setHeader('Content-Type', 'text/html');
@@ -8,7 +11,9 @@ app.use((req, res, next) => {
 });
 
 app.use((req, res, next) => {
-    res.send('<h1>Hello World!</h1>');
+    const userName = req.body.username || 'Mogul';
+    res.send(`<h1>Hi ${userName}</h1><form method="POST" action="/"><input name="username" type="text"><button type="submit">Send</button></form>`);
+    
 });
 
 app.listen(3000);
